@@ -1,0 +1,38 @@
+server:
+  port: ${EUREKA_SERVER_PORT}
+spring:
+  application:
+    name: eureka-server
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: false # 表示是否从Eureka Server获取注册信息,默认为true.因为这是一个单点的Eureka Server,不需要同步其他的Eureka Server节点的数据,这里设置为false
+    register-with-eureka: false # 表示是否将自己注册到Eureka Server,默认为true.由于当前应用就是Eureka Server,故而设置为false.
+    service-url:
+      # 设置Eureka Server的地址,查询服务和注册服务都需要依赖这个地址
+      defaultZone: http://${eureka.instance.hostname}:8371/eureka/
+logging:
+  pattern:
+    console: '%d{MM-dd HH:mm:ss.SSS} %c %M %L [%thread] %m%n'
+
+#server:
+#  port: 8360
+#spring:
+#  application:
+#    name: eureka
+#  config:
+#    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
+#eureka:
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+#  server:
+#    waitTimeInMsWhenSyncEmpty: 0
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"

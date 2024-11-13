@@ -1,0 +1,17 @@
+server:
+  port: 8888
+spring:
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: application
+      profile: dev
+      username: 1294605662@qq.com
+      password: LXBrcs123
+      server:
+        git:
+          uri: https://github.com/liuxiaobo129/config-repo.git
+          search-paths: app-config
+#          labels: main
+

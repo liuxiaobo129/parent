@@ -1,0 +1,13 @@
+server:
+  port: 8351
+spring:
+  application:
+    # 给product-service起个名字，方便eureka管理
+    name: product-service
+
+# Eureka Client
+eureka:
+  client:
+    service-url:
+      # product-service 使用这个地址 注册到 eureka-server
+      defaultZone: http://127.0.0.1:8360/eureka/
