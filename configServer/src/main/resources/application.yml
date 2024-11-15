@@ -15,3 +15,8 @@ spring:
           search-paths: app-config
 #          labels: main
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

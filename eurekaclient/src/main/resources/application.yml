@@ -10,4 +10,6 @@ eureka:
   client:
     service-url:
       # product-service 使用这个地址 注册到 eureka-server
-      defaultZone: http://127.0.0.1:8360/eureka/
+      fetch-registry: true # 表示是否从Eureka Server获取注册信息,默认为true.因为这是一个单点的Eureka Server,不需要同步其他的Eureka Server节点的数据,这里设置为false
+      register-with-eureka: true # 表示是否将自己注册到Eureka Server,默认为true.由于当前应用就是Eureka Server,故而设置为false.
+      defaultZone: http://localhost:8306/eureka/

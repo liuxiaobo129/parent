@@ -29,6 +29,7 @@
     <module>eurekaclient</module>
     <module>configServer</module>
     <module>configClient</module>
+    <module>cloudloadbalancer</module>
 
   </modules>
 

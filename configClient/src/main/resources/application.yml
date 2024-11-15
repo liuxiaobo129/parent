@@ -4,8 +4,17 @@ spring:
       name: application
       profile: dev
       uri: http://localhost:8888
+    bus:
+      enabled: true
+  kafka:
+    bootstrap-servers: localhost:9092
   application:
     name: my-service
 
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 

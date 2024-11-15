@@ -9,11 +9,11 @@ eureka:
   instance:
     hostname: localhost
   client:
-    fetch-registry: false # 表示是否从Eureka Server获取注册信息,默认为true.因为这是一个单点的Eureka Server,不需要同步其他的Eureka Server节点的数据,这里设置为false
-    register-with-eureka: false # 表示是否将自己注册到Eureka Server,默认为true.由于当前应用就是Eureka Server,故而设置为false.
+    fetch-registry: true # 表示是否从Eureka Server获取注册信息,默认为true.因为这是一个单点的Eureka Server,不需要同步其他的Eureka Server节点的数据,这里设置为false
+    register-with-eureka: true # 表示是否将自己注册到Eureka Server,默认为true.由于当前应用就是Eureka Server,故而设置为false.
     service-url:
       # 设置Eureka Server的地址,查询服务和注册服务都需要依赖这个地址
-      defaultZone: http://${eureka.instance.hostname}:8371/eureka/
+      defaultZone: http://localhost:8306/eureka/
 logging:
   pattern:
     console: '%d{MM-dd HH:mm:ss.SSS} %c %M %L [%thread] %m%n'

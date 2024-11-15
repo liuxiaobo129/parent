@@ -1,0 +1,8 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8306/eureka  # Eureka Server地址
+      register-with-eureka: true
+      fetch-registry: true
+server:
+  port: 8085
