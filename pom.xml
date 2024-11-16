@@ -30,6 +30,8 @@
     <module>configServer</module>
     <module>configClient</module>
     <module>cloudloadbalancer</module>
+    <module>feign</module>
+    <module>gateway</module>
 
   </modules>
 

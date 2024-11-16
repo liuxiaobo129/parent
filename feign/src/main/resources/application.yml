@@ -5,9 +5,4 @@ eureka:
       register-with-eureka: true
       fetch-registry: true
 server:
-  port: 8085
-
-
-logging:
-  level:
-    i.n.r.d.DnsServerAddressStreamProviders: DEBUG
+  port: 8086
