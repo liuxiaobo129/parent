@@ -22,4 +22,7 @@ spring:
             - Path=/user-service/**
           filters:
             - StripPrefix=1
-            - name: RequestTimeGatewayFilterFactory
+            - name: CustomFilterFactory
+              args:
+                headerName: X-My-Header
+                headerValue: MyHeaderValue
