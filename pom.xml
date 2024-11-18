@@ -32,6 +32,8 @@
     <module>cloudloadbalancer</module>
     <module>feign</module>
     <module>gateway</module>
+    <module>sentinel</module>
+    <module>redis</module>
 
   </modules>
 
