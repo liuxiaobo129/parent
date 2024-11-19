@@ -35,6 +35,7 @@
     <module>sentinel</module>
     <module>redis</module>
     <module>redission</module>
+    <module>docker</module>
 
   </modules>
 
