@@ -1,0 +1,20 @@
+singleServerConfig:
+  idleConnectionTimeout: 10000
+  connectTimeout: 10000
+  timeout: 3000
+  retryAttempts: 3
+  retryInterval: 1500
+#  password: your_password # 如果没有设置密码，需要注释掉
+  clientName: "your_client_name"
+  address: "redis://localhost:6379" # 请根据实际情况修改Redis服务器地址和端口
+  subscriptionConnectionMinimumIdleSize: 1
+  subscriptionConnectionPoolSize: 50
+  connectionMinimumIdleSize: 32
+  connectionPoolSize: 64
+  database: 0
+  dnsMonitoringInterval: 5000
+  threads: 0
+  nettyThreads: 0
+  codec: !<org.redisson.codec.JsonJacksonCodec> {}
+  transportMode: "NIO"
+  lockWatchdogTimeout: 10000
