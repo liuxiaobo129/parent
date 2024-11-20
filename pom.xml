@@ -36,6 +36,7 @@
     <module>redis</module>
     <module>redission</module>
     <module>docker</module>
+    <module>swagger</module>
 
   </modules>
 
