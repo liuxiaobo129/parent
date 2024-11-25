@@ -37,6 +37,7 @@
     <module>redission</module>
     <module>docker</module>
     <module>swagger</module>
+    <module>netty</module>
 
   </modules>
 

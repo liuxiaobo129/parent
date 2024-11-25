@@ -13,6 +13,7 @@ public class UserController {
         User user = new User();
         user.setId(id);
         user.setName("Example User");
+        System.out.println("test");
         return user;
     }
 
