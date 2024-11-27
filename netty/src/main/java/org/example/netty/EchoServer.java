@@ -8,6 +8,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.CharsetUtil;
 
+import java.util.concurrent.Executor;
+
 public class EchoServer {
     public static void main(String[] args) throws Exception {
         // 创建两个事件循环组
@@ -63,5 +65,6 @@ class EchoServerHandler extends ChannelInboundHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         cause.printStackTrace();
         ctx.close();  // 发生异常时关闭连接
+
     }
 }

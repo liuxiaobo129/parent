@@ -41,6 +41,7 @@ public class EchoClient {
             // 发送消息
             // 使用 Unpooled.copiedBuffer() 将 String 转换为 ByteBuf
             f.channel().writeAndFlush(Unpooled.copiedBuffer("Hello, Netty!", CharsetUtil.UTF_8));
+            f.channel().writeAndFlush(Unpooled.copiedBuffer("Hello, Netty!", CharsetUtil.UTF_8));
             // 等待客户端关闭
             f.channel().closeFuture().sync();
         } finally {
