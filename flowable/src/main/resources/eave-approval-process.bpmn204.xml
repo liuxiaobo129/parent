@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             targetNamespace="http://flowable.org/bpmn20"
+             xmlns:flowable="http://flowable.org/bpmn20">
+
+    <process id="parallelExample_isactive" name="Parallel Example" isExecutable="true">
+        <startEvent id="start" />
+        <sequenceFlow id="flow1" sourceRef="start" targetRef="parallelGateway" />
+        <parallelGateway id="parallelGateway" />
+        <sequenceFlow id="flow2" sourceRef="parallelGateway" targetRef="task1" />
+        <sequenceFlow id="flow3" sourceRef="parallelGateway" targetRef="task2" />
+        <userTask id="task1" name="Task 1" />
+        <userTask id="task2" name="Task 2" />
+        <parallelGateway id="mergeGateway" />
+        <sequenceFlow id="flow4" sourceRef="task1" targetRef="mergeGateway" />
+        <sequenceFlow id="flow5" sourceRef="task2" targetRef="mergeGateway" />
+        <sequenceFlow id="flow6" sourceRef="mergeGateway" targetRef="end" />
+        <endEvent id="end" />
+    </process>
+</definitions>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             targetNamespace="http://flowable.org/bpmn20"
+             xmlns:flowable="http://flowable.org/bpmn20">
+
+    <process id="leaveRequest1" name="Leave Request" isExecutable="true">
+        <!-- 开始事件 -->
+        <startEvent id="start" name="Start" />
+
+        <!-- 从开始事件到用户任务 -->
+        <sequenceFlow id="flow1" sourceRef="start" targetRef="approveTask" />
+
+        <!-- 用户任务：审批请求 -->
+        <userTask id="approveTask" name="Approve Request" />
+
+        <!-- 排他网关 -->
+        <exclusiveGateway id="decisionGateway" name="Decision Gateway" />
+        <sequenceFlow id="flow2" sourceRef="approveTask" targetRef="decisionGateway" />
+
+        <!-- 条件分支：批准 -->
+        <sequenceFlow id="approvedFlow" sourceRef="decisionGateway" targetRef="endApproved">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approvalStatus == 'approved'}]]></conditionExpression>
+        </sequenceFlow>
+
+        <!-- 条件分支：拒绝 -->
+        <sequenceFlow id="rejectedFlow" sourceRef="decisionGateway" targetRef="endRejected">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approvalStatus == 'rejected'}]]></conditionExpression>
+        </sequenceFlow>
+
+        <!-- 结束事件：批准 -->
+        <endEvent id="endApproved" name="Approved End" />
+
+        <!-- 结束事件：拒绝 -->
+        <endEvent id="endRejected" name="Rejected End" />
+    </process>
+
+</definitions>

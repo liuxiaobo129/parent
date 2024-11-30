@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class CorrectWayToHandleResponseFuture {
@@ -83,6 +84,7 @@ class ResponseFuture{
 
         CompletableFuture<String> future = new CompletableFuture<>();
 
+//        ThreadPoolExecutor
         new Thread(() -> {
             try {
                 throw new RuntimeException("任务失败");
@@ -97,7 +99,11 @@ class ResponseFuture{
 //        } catch (Exception e) {
 //            System.out.println("捕获异常: " + e.getMessage());
 //        }
+        
+
     }
+
+
 }
 
 

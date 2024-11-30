@@ -38,6 +38,7 @@
     <module>docker</module>
     <module>swagger</module>
     <module>netty</module>
+    <module>flowable</module>
 
   </modules>
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             targetNamespace="http://flowable.org/bpmn20"
+             xmlns:flowable="http://flowable.org/bpmn20">
+
+    <!-- 父流程 -->
+    <process id="parentProcess" name="Parent Process" isExecutable="true">
+        <startEvent id="start" name="Start" />
+        <sequenceFlow id="flow1" sourceRef="start" targetRef="subProcess" />
+
+        <!-- 调用子流程 -->
+        <subProcess id="subProcess" name="Sub Process" flowable:triggeredByEvent="false">
+            <startEvent id="subStart" name="Start Subprocess" />
+            <userTask id="task1" name="Task in Subprocess" />
+            <endEvent id="subEnd" name="End Subprocess" />
+            <sequenceFlow id="flow2" sourceRef="subStart" targetRef="task1" />
+            <sequenceFlow id="flow3" sourceRef="task1" targetRef="subEnd" />
+        </subProcess>
+
+        <sequenceFlow id="flow4" sourceRef="subProcess" targetRef="approveTask" />
+
+        <userTask id="approveTask" name="Approve Request" />
+
+        <sequenceFlow id="flow5" sourceRef="approveTask" targetRef="end" />
+
+        <endEvent id="end" name="End" />
+    </process>
+
+</definitions>
