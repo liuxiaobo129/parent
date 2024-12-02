@@ -14,7 +14,11 @@ import javax.sql.DataSource;
 import org.flowable.engine.TaskService;
 @Configuration
 public class FlowableConfig {
+    @Bean
+    public MyJavaDelegate myJavaDelegate() {
 
+        return new MyJavaDelegate();
+    }
     // 配置数据源
     @Bean
     public DataSource dataSource() {
@@ -39,6 +43,8 @@ public class FlowableConfig {
         configuration.setDataSource(dataSource());  // 设置数据源
         configuration.setTransactionManager(transactionManager());  // 设置事务管理器
         configuration.setDatabaseSchemaUpdate("true");  // 自动更新数据库表结构
+//        configuration.setEnableEventDispatcher(true); // 启用事件分发器
+//        configuration.getEventDispatcher().addEventListener(new CustomEventListener());
         return configuration;
     }
 
@@ -51,6 +57,9 @@ public class FlowableConfig {
     // 创建 RepositoryService Bean
     @Bean
     public RepositoryService repositoryService(ProcessEngine processEngine) {
+        processEngine.getProcessEngineConfiguration()
+                .getEventDispatcher()
+                .addEventListener(new CustomEventListener());
         return processEngine.getRepositoryService();
     }
 
@@ -65,4 +74,6 @@ public class FlowableConfig {
     public TaskService taskService(ProcessEngine processEngine) {
         return processEngine.getTaskService();
     }
+
+
 }

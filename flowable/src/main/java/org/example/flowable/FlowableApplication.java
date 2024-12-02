@@ -1,5 +1,7 @@
 package org.example.flowable;
 
+import org.flowable.engine.impl.db.ProcessDbSchemaManager;
+import org.flowable.spring.SpringProcessEngineConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -11,10 +13,16 @@ public class FlowableApplication {
         ConfigurableApplicationContext run = SpringApplication.run(FlowableApplication.class, args);
 
         FlowableService bean =(FlowableService) run.getBean("flowableService");
+        MyJavaDelegate bean1 =(MyJavaDelegate) run.getBean("myJavaDelegate");
+        System.out.println("bean1: " + bean1);
 //
-        bean.deployProcessDefinition();
-//
-//        bean.startProcess();
+//        bean.deployProcessDefinition();
+//          bean.startProcess( "parallelExample");
+//ProcessEnginePostEngineBuildConsumer；
+//        SpringProcessEngineConfiguration
+
+
+//        ProcessDbSchemaManager
 //
 //        bean.suspendProcess();
 
@@ -22,7 +30,7 @@ public class FlowableApplication {
 
 //        bean.activateProcess();
 
-//        bean.completeTask( "207501");
+        bean.completeTask( "82501");
     }
 
 }

@@ -1,5 +1,6 @@
 package org.example.flowable;
 
+import org.flowable.common.engine.impl.persistence.cache.EntityCacheImpl;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.RuntimeService;
 import org.flowable.engine.runtime.ProcessInstance;
@@ -39,13 +40,13 @@ public class FlowableService {
     @Autowired
     private RuntimeService runtimeService;
 
-    public void startProcess() {
+    public void startProcess(String key) {
         // 启动流程实例
         Map<String, Object> variables = new HashMap<>();
         variables.put("approvalStatus", "approved");
 
 //        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("leaveRequest1",variables);
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("parallelExample",variables);
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(key,variables);
         System.out.println("Process instance started with ID: " + processInstance.getId());
     }
 
@@ -77,7 +78,7 @@ public class FlowableService {
 
     public void activateProcess() {
         // 挂起流程实例
-
+//        EntityCacheImpl
 
         // 激活流程实例
         runtimeService.activateProcessInstanceById("82501");
