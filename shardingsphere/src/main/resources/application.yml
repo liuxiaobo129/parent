@@ -1,0 +1,42 @@
+
+spring:
+  shardingsphere:
+    datasource:
+      names: ds0, ds1
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/first_schema?useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password: LXBrcs123!
+        driver-class-name: com.mysql.cj.jdbc.Driver
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/first_schema?useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password: LXBrcs123!
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+    sharding:
+      tables:
+        t_order:
+          actualDataNodes: ds$->{0..1}.t_order_$->{0..1}  # 数据源ds0, ds1；表t_order分片
+          tableStrategy:
+            inline:
+              shardingColumn: order_id  # 分片字段：order_id
+              algorithmExpression: t_order_$->{order_id % 2}  # 根据order_id进行取模，分为两个表
+
+      defaultDatabaseStrategy:
+        inline:
+          shardingColumn: user_id  # 默认分片字段：user_id
+          algorithmExpression: ds$->{user_id % 2}  # 根据user_id进行分片，选择数据源ds0, ds1
+#
+#logging:
+#  level:
+#    com.zaxxer.hikari: DEBUG
+#    org.apache.shardingsphere: DEBUG
+#
+#
+#
+server:
+  port: 9092
+
