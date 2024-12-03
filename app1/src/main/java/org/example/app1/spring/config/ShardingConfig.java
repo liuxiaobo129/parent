@@ -1,9 +1,7 @@
-package org.example.shardingsphere;
+package org.example.app1.spring.config;
 
 
-import lombok.RequiredArgsConstructor;
-import org.apache.shardingsphere.shardingjdbc.spring.boot.sharding.SpringBootShardingRuleConfigurationProperties;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

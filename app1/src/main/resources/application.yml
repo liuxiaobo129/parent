@@ -1,0 +1,16 @@
+application:
+  properties:
+app:
+  settings:
+    set1:
+      id: 1
+    set2:
+      id: 2
+  name: aaaaaaaaaaaaaa
+  info:
+    tableName: 6666
+
+  features:
+    - featureA
+    - featureB
+    - featureC
