@@ -1,8 +1,9 @@
 package org.example.shardingsphere;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 
-
+@TableName("t_order")
 public class Order {
 
     // 主键，使用雪花算法生成
