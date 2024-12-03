@@ -4,19 +4,21 @@
              targetNamespace="http://flowable.org/bpmn20"
              xmlns:flowable="http://flowable.org/bpmn">
 
-    <process id="parallelExample" name="Parallel Example" isExecutable="true">
-        <startEvent id="start" />
-        <sequenceFlow id="flow1" sourceRef="start" targetRef="parallelGateway" />
-        <parallelGateway id="parallelGateway" />
-        <sequenceFlow id="flow2" sourceRef="parallelGateway" targetRef="task1" />
-        <sequenceFlow id="flow3" sourceRef="parallelGateway" targetRef="task2" />
-        <userTask id="task1" name="Task 1" />
-        <userTask id="task2" name="Task 2" />
-        <parallelGateway id="mergeGateway" />
-        <sequenceFlow id="flow4" sourceRef="task1" targetRef="mergeGateway" />
-        <sequenceFlow id="flow5" sourceRef="task2" targetRef="mergeGateway" />
-        <sequenceFlow id="flow6" sourceRef="mergeGateway" targetRef="end" />
-        <endEvent id="end" />
-    </process>
+    <process id="intermediateTimerExample" name="Intermediate Timer Example" isExecutable="true">
+        <startEvent id="start" name="Start" />
+        <sequenceFlow id="flow1" sourceRef="start" targetRef="waitTimer" />
 
+        <intermediateCatchEvent id="waitTimer" name="Wait for Timer">
+            <timerEventDefinition>
+                <timeDuration>PT30S</timeDuration>
+            </timerEventDefinition>
+        </intermediateCatchEvent>
+
+        <sequenceFlow id="flow2" sourceRef="waitTimer" targetRef="task1" />
+
+        <userTask id="task1" name="Continue Task" />
+
+        <sequenceFlow id="flow3" sourceRef="task1" targetRef="end" />
+        <endEvent id="end" name="End" />
+    </process>
 </definitions>
