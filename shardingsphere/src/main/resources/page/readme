@@ -1,0 +1,15 @@
+Keyset分页通过从当前页的最后一行获取“游标”值（如主键），然后根据这个游标值查询下一页的结果，
+而不是像传统分页那样跳过一定数量的行。
+
+传统分页示例
+
+SELECT * FROM t_order ORDER BY order_id LIMIT 10 OFFSET 1000;
+
+
+•	数据库需要跳过前1000行，然后取出接下来的10行。
+•	当分页页数很大时（例如，OFFSET 100000），性能会下降，因为数据库需要扫描并丢弃大量的行。
+
+Keyset分页示例
+
+SELECT * FROM t_order WHERE order_id > 1000 ORDER BY order_id LIMIT 10;
+
