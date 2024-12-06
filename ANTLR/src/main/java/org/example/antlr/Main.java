@@ -13,12 +13,13 @@ public class Main {
         String input = "x = 'Hello'\n" +
                 "y = 'World'\n" +
                 "z = x + y\n" +
-                "print z\n" +
-                "if z == 'HelloWorld' then {" +
-                "   print 'Match!'\n" +
-                "} else {" +
-                "    print 'No match!'\n" +
-                " }end\n";
+                "print z\n";
+//                +
+//                "if z == 'HelloWorld' then {" +
+//                "   print 'Match!'\n" +
+//                "} else {" +
+//                "    print 'No match!'\n" +
+//                " }end\n";
         CharStream inputStream = CharStreams.fromString(input);
 
         // 创建词法分析器和解析器
@@ -32,5 +33,6 @@ public class Main {
         // 创建访问者并执行
         EvalVisitor eval = new EvalVisitor();
         eval.visit(tree);
+
     }
 }
