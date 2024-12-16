@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.transaction.interceptor.TransactionInterceptor;
 
 @SpringBootApplication
 public class App1Application {
@@ -19,6 +20,8 @@ public class App1Application {
 //
 //        validationService.getValidators();
         LOGGER.info("Initializing flowable-cdi.");
+
+        TransactionInterceptor transactionInterceptor = new TransactionInterceptor();
 
 //        PatternLayout ；
 
