@@ -1,5 +1,8 @@
 package org.example.app1.spring.importann;
 
+
+import org.springframework.context.ApplicationContext;
+
 public class ImportUse {
 
 //    1. Spring 的默认包路径扫描行为
@@ -10,5 +13,6 @@ public class ImportUse {
 
 //   所以要用到import； @EnableTransactionManagement； 这种方式类似于spring-boot-starter
 
+    ApplicationContext applicationContext;
 
 }
