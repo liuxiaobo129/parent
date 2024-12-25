@@ -1,0 +1,13 @@
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+    logger: slf4j
+  protocol:
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://192.168.0.101:2181
+    protocol: zookeeper
+    id: zk-registry
+
+

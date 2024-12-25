@@ -1,0 +1,4 @@
+1. DubboConfigConfiguration的注解@EnableConfigurationBeanBinding放置的是new RootBeanDefinition(Class)
+
+
+2、 DubboInfraBeanRegisterPostProcessor -》ReferenceAnnotationBeanPostProcessor -〉 ReferenceBeanManager-》ReferenceConfig解析注解

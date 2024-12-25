@@ -13,12 +13,12 @@ public class SentinelApplication {
     }
 
 
-//    @Bean
-//    public CommandLineRunner commandLineRunner(SentinelRuleConfig sentinelRuleConfig) {
-//        return args -> {
-//            // 初始化限流规则
-//            sentinelRuleConfig.initFlowRules();
-//        };
-//    }
+    @Bean
+    public CommandLineRunner commandLineRunner(SentinelRuleConfig sentinelRuleConfig) {
+        return args -> {
+            // 初始化限流规则
+            sentinelRuleConfig.initFlowRules();
+        };
+    }
 
 }
