@@ -2,3 +2,13 @@
 
 
 2、 DubboInfraBeanRegisterPostProcessor -》ReferenceAnnotationBeanPostProcessor -〉 ReferenceBeanManager-》ReferenceConfig解析注解
+
+
+3、 ZookeeperRegistry#doSubscribe 订阅监听器
+
+
+4、 Wrapper 使用javassist生成代理类
+
+5、 ZookeeperDynamicConfiguration 初始化
+
+6.   DubboDeployApplicationListener

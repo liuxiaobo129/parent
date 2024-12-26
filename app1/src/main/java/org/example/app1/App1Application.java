@@ -11,7 +11,7 @@ import org.springframework.transaction.interceptor.TransactionInterceptor;
 
 @SpringBootApplication
 public class App1Application {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CoreConfig.class);
+//    private static final Logger LOGGER = LoggerFactory.getLogger(CoreConfig.class);
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(App1Application.class, args);
@@ -19,7 +19,7 @@ public class App1Application {
 //        ValidationService validationService = (ValidationService)run.getBean("validationService");
 //
 //        validationService.getValidators();
-        LOGGER.info("Initializing flowable-cdi.");
+//        LOGGER.info("Initializing flowable-cdi.");
 
         TransactionInterceptor transactionInterceptor = new TransactionInterceptor();
 

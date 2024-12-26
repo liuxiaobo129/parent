@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: zookeeper-demo # 当前服务的名称
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181 # Zookeeper 连接地址
+      discovery:
+        enabled: true  # 禁用服务注册与发现
+server:
+  port: 9011
