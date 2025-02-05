@@ -40,6 +40,7 @@
     <module>netty</module>
     <module>flowable</module>
     <module>dubb</module>
+    <module>SpringSecurity</module>
 
   </modules>
 
