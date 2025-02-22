@@ -1,0 +1,17 @@
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+                <argLine>-Dfile.encoding=UTF-8</argLine>\
+                 解决查询的时候中文查询不出结果
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
