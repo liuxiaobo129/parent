@@ -1,0 +1,28 @@
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+    logger: slf4j
+  protocol:
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://192.168.0.101:2181
+    protocol: zookeeper
+    id: zk-registry
+
+  metrics:
+    enableJvm: true        # 启用 JVM 指标
+    enableThreadpool: true # 启用线程池指标
+    enableRegistry: true   # 启用注册中心指标
+    enableRpc: true        # 启用 RPC 指标
+    protocol: prometheus # 使用 Prometheus 协议
+    prometheus:
+      exporter:
+        enabled: true # 启用 Exporter
+        metrics-path: /metrics # Prometheus 拉取数据的路径
+        exporter-port: 20888 # Prometheus 数据暴露端口
+
+
+
+
+

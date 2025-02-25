@@ -1,5 +1,6 @@
 package org.example.sentinel;
 
+import com.alibaba.csp.sentinel.CtSph;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class TestController {
 
 
     public static void main(String[] args) {
-
+//        CtSph ctSph；
     }
 }
 

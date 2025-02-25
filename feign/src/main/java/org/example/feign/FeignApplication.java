@@ -17,8 +17,9 @@ public class FeignApplication {
 
         UserService userService = (UserService)run.getBean("userService");
 
-//        User user = userService.doSomething(1L);
-        userService.createOrderAndRegisterUser();
+        User user = userService.doSomething(1L);
+
+//        userService.createOrderAndRegisterUser();
 
 //        System.out.println(user.getName());
 

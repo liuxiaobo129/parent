@@ -1,0 +1,4 @@
+1、 ZookeeperAutoConfiguration -》 CuratorServiceDiscoveryAutoConfiguration -〉ZookeeperAutoServiceRegistrationAutoConfiguration
+
+
+2、 CompositeDiscoveryClient->ZookeeperDiscoveryClient
